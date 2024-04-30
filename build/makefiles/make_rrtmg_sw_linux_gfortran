@@ -27,8 +27,8 @@ VERSION = v5.00
 ##############################################################
 
 ifeq ($(KGSRC),nc)
-   LIB_NETCDF = /usr/lib
-   INC_NETCDF = /usr/include
+   LIB_NETCDF = $(shell nc-config --libdir)
+   INC_NETCDF = $(shell nc-config --includedir)
 endif
 
 ##################################
