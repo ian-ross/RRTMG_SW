@@ -38,7 +38,7 @@ endif
 FC = gfortran
 ifeq ($(KGSRC),nc)
    FCOPTS = -O2 -g -fno-align-commons -fdefault-double-8 -fdefault-integer-8 -I$(INC_NETCDF)
-   LDFLAGS = -L$(LIB_NETCDF) -lnetcdff -lnetcdf
+   LDFLAGS = -L$(LIB_NETCDF) -Wl,-rpath=$(shell nc-config --libdir) -lnetcdff -lnetcdf
 else
    FCOPTS = -O2 -g -fdefault-double-8 -fdefault-real-8 -fdefault-integer-8
 # Compile absorption coefficient data without optimization
